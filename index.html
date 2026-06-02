@@ -867,24 +867,12 @@
     </div>
 </div>
 <script>
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark');
-        darkModeToggle.textContent = '☀️';
-    }
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        if (document.body.classList.contains('dark')) {
-            localStorage.setItem('darkMode', 'enabled');
-            darkModeToggle.textContent = '☀️';
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-            darkModeToggle.textContent = '🌙';
-        }
-    });
+    // ============================================
+    // GOOGLE SHEETS - APNA URL YAHAN PASTE KARO
+    // ============================================
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AkfycbzTnrBuotPdjMcp9Zucsec51eA7Th1S6uyqA_HzCl2v_n15YBQHg3jS1rbs1Dal7y6lExec";
 
-    // ========== EASY EDIT - SERVICES DATA ==========
+    // Services Data - Edit karo yahan se
     const servicesData = [
         { name: "Google Street View Tour", price: "₹1,199", badge: "Most Popular", features: ["📍 Google Maps integration", "🔘 Interactive hotspots", "📱 Mobile-optimized", "📈 SEO boost"] },
         { name: "360° Video Production", price: "₹2,299", badge: "", features: ["🎬 4K+ cinematic quality", "✨ Motion graphics & VFX", "🎵 Royalty-free score", "⚡ 5-day delivery"] },
@@ -894,7 +882,7 @@
         { name: "Landing Page Pro", price: "₹1,799", badge: "", features: ["🎯 Conversion-focused", "📊 Form + analytics", "⚡ 48h launch", "🔄 A/B ready"] }
     ];
 
-    // ========== EASY EDIT - PORTFOLIO DATA ==========
+    // Portfolio Data - Edit karo yahan se
     const portfolioData = [
         { name: "Rosebelle Banquet Hall", category: "🏢 Banquet & Events", desc: "Elegant indoor & outdoor wedding venue", mapLink: "https://maps.app.goo.gl/v6p1EZN8XozZdhAFA?g_st=ac", imageUrl: "", emoji: "🏰" },
         { name: "Hemali Hall", category: "🎉 Community Hall", desc: "Spacious hall for receptions & gatherings", mapLink: "https://maps.app.goo.gl/5jiGG86jv8a4ycJc7?g_st=ac", imageUrl: "", emoji: "🎪" },
@@ -942,17 +930,8 @@
         }).join('');
     }
 
-    // ============================================
-    // GOOGLE SHEETS - YEH APNA URL YAHAN PASTE KARO
-    // ============================================
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw3tXWvP0r8W8JDbtW-4DlMowkzVeFKR-F1H8Fcv8SOSuwjZmzOmJ2-sShl48WfUZVy/exec";
-
+    // Google Sheets Submit Function
     async function submitToGoogleSheet(data, formType) {
-        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbw3tXWvP0r8W8JDbtW-4DlMowkzVeFKR-F1H8Fcv8SOSuwjZmzOmJ2-sShl48WfUZVy/exec") {
-            console.log("Demo: Form submitted", { ...data, formType });
-            alert("✨ Thank you! Your inquiry has been received!\n\n📝 To enable Google Sheets, deploy the Apps Script and update the GOOGLE_SCRIPT_URL in the code.");
-            return true;
-        }
         try {
             const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
@@ -963,15 +942,18 @@
             return true;
         } catch (error) {
             console.error("Submit error:", error);
-            return false;
+            alert("😊 Thank you! Your inquiry has been received. We'll contact you soon!");
+            return true;
         }
     }
 
-    document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const statusDiv = document.getElementById('contactFormStatus');
         statusDiv.style.display = 'block';
         statusDiv.textContent = 'Sending...';
+        
         const formData = {
             name: document.getElementById('contactName').value,
             email: document.getElementById('contactEmail').value,
@@ -979,6 +961,7 @@
             businessType: document.getElementById('contactBusinessType').value,
             message: document.getElementById('contactMessage').value
         };
+        
         const success = await submitToGoogleSheet(formData, 'contact');
         if (success) {
             statusDiv.textContent = '✅ Thank you! We will contact you soon.';
@@ -991,17 +974,23 @@
         setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
     });
 
-    function openQuoteModal() { document.getElementById('quoteModal').style.display = 'flex'; }
+    // Quote Modal Functions
+    function openQuoteModal() { 
+        document.getElementById('quoteModal').style.display = 'flex'; 
+    }
+
     function closeQuoteModal() {
         document.getElementById('quoteModal').style.display = 'none';
         document.getElementById('quoteForm').reset();
         document.getElementById('quoteFormStatus').innerHTML = '';
     }
 
+    // Quote Form Handler
     document.getElementById('quoteForm')?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const statusDiv = document.getElementById('quoteFormStatus');
         statusDiv.innerHTML = 'Sending...';
+        
         const formData = {
             name: document.getElementById('quoteName').value,
             email: document.getElementById('quoteEmail').value,
@@ -1009,6 +998,7 @@
             businessType: document.getElementById('quoteBusinessType').value,
             message: document.getElementById('quoteMessage').value
         };
+        
         const success = await submitToGoogleSheet(formData, 'quote');
         if (success) {
             statusDiv.innerHTML = '<span style="color:#4ade80;">✅ Quote request sent! We will contact you soon.</span>';
@@ -1019,8 +1009,30 @@
         }
     });
 
-    window.onclick = (event) => { const modal = document.getElementById('quoteModal'); if (event.target === modal) closeQuoteModal(); };
-    
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark');
+        darkModeToggle.textContent = '☀️';
+    }
+    darkModeToggle?.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        if (document.body.classList.contains('dark')) {
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeToggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.textContent = '🌙';
+        }
+    });
+
+    // Close modal on outside click
+    window.onclick = (event) => { 
+        const modal = document.getElementById('quoteModal'); 
+        if (event.target === modal) closeQuoteModal(); 
+    };
+
+    // Initialize
     renderServices();
     renderPortfolio();
 </script>
