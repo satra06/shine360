@@ -723,6 +723,73 @@
             .social-links { gap: 1rem; }
             .social-icon { width: 45px; height: 45px; font-size: 1.3rem; }
         }
+    /* Virtual Tour Benefits Section */
+.benefits-section {
+    margin: 4rem 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.benefit-card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    padding: 1.8rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0f3b2c, #b8860b, #e8b44b);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+.benefit-card:hover:before {
+    transform: scaleX(1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+}
+
+.benefit-card p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
     </style>
 </head>
 <body>
@@ -732,6 +799,7 @@
     <div class="nav-links">
         <a onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">Home</a>
         <a onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Services</a>
+        <a onclick="document.getElementById('benefits').scrollIntoView({behavior: 'smooth'})">Benefits</a>
         <a onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">Portfolio</a>
         <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</a>
         <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Dark mode">🌙</button>
@@ -939,6 +1007,54 @@ const servicesData = [
     }
 ];
 
+<!-- VIRTUAL TOUR BENEFITS SECTION -->
+<section id="benefits" class="benefits-section">
+    <h2>✨ Virtual Tour Benefits</h2>
+    <div class="section-subhead">Give your customers a 360° experience that builds trust and drives results</div>
+    
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <div class="benefit-icon">🕐</div>
+            <h3>24/7 Online Access</h3>
+            <p>Customers can visit your property anytime, from anywhere — even after business hours.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">📈</div>
+            <h3>Increases Online Visibility</h3>
+            <p>Virtual tours improve engagement on Google & Google Maps, helping your business rank better.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">🤝</div>
+            <h3>Builds Trust & Transparency</h3>
+            <p>Customers can see the real environment before visiting, which increases confidence and reduces doubts.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">💰</div>
+            <h3>Higher Conversion Rate</h3>
+            <p>People who take a virtual tour are more likely to visit physically or make a booking.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">🏢</div>
+            <h3>Perfect for All Businesses</h3>
+            <p>Ideal for Hotels, Restaurants, Showrooms, Schools, Real Estate & more.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">📱</div>
+            <h3>Mobile & TV Friendly</h3>
+            <p>Works smoothly on Smartphones, Laptops, Smart TVs & VR Headsets.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">⏱️</div>
+            <h3>Saves Time & Cost</h3>
+            <p>Reduces unnecessary physical visits and saves staff time.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">🏆</div>
+            <h3>Competitive Advantage</h3>
+            <p>Stand out from competitors who only use normal photos.</p>
+        </div>
+    </div>
+</section>
 // Portfolio Data - Edit karo yahan se
 const portfolioData = [
     { 
