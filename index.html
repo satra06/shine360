@@ -866,7 +866,6 @@
         <div id="quoteFormStatus" style="margin-top:1rem;"></div>
     </div>
 </div>
-
 <script>
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
@@ -943,17 +942,19 @@
         }).join('');
     }
 
-    // Google Sheets Setup
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyG_wbq1kysTzHQoc-ItgVQTfKcqkDYwJ312oblLZW_07CLhC6coJd9H9p7nG-U3tGNrg/exec";
-    
+    // ============================================
+    // GOOGLE SHEETS - YEH APNA URL YAHAN PASTE KARO
+    // ============================================
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw3tXWvP0r8W8JDbtW-4DlMowkzVeFKR-F1H8Fcv8SOSuwjZmzOmJ2-sShl48WfUZVy/exec";
+
     async function submitToGoogleSheet(data, formType) {
-        if (GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbyG_wbq1kysTzHQoc-ItgVQTfKcqkDYwJ312oblLZW_07CLhC6coJd9H9p7nG-U3tGNrg/exec") {
+        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbw3tXWvP0r8W8JDbtW-4DlMowkzVeFKR-F1H8Fcv8SOSuwjZmzOmJ2-sShl48WfUZVy/exec") {
             console.log("Demo: Form submitted", { ...data, formType });
-            alert("✨ Thank you! Your inquiry has been received. We'll contact you within 24 hours.\n\n📝 To enable Google Sheets, replace GOOGLE_SCRIPT_URL in the code.");
+            alert("✨ Thank you! Your inquiry has been received!\n\n📝 To enable Google Sheets, deploy the Apps Script and update the GOOGLE_SCRIPT_URL in the code.");
             return true;
         }
         try {
-            await fetch(GOOGLE_SCRIPT_URL, {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -961,6 +962,7 @@
             });
             return true;
         } catch (error) {
+            console.error("Submit error:", error);
             return false;
         }
     }
