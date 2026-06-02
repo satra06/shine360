@@ -58,7 +58,6 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Premium Typography */
         h1, h2, h3 {
             font-weight: 700;
             line-height: 1.2;
@@ -119,7 +118,6 @@
             padding: 2rem 0;
         }
 
-        /* Premium Buttons */
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
@@ -130,8 +128,6 @@
             cursor: pointer;
             border: none;
             font-family: inherit;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-primary {
@@ -158,7 +154,6 @@
             transform: translateY(-2px);
         }
 
-        /* Premium Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -234,14 +229,12 @@
             border-color: #b8860b;
         }
 
-        /* Premium Hero */
         .hero {
             text-align: center;
             padding: 5rem 2rem 7rem;
             background: var(--hero-bg);
             position: relative;
             overflow: hidden;
-            transition: background 0.3s ease;
         }
 
         .hero:before {
@@ -270,7 +263,6 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
             transition: all 0.3s;
-            backdrop-filter: blur(5px);
         }
 
         .stat:hover {
@@ -288,15 +280,14 @@
             display: block;
         }
 
-        /* Premium Cards */
-        .services-grid, .portfolio-grid {
+        .services-grid, .portfolio-grid, .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
-        .service-card, .portfolio-card {
+        .service-card, .portfolio-card, .benefit-card {
             background: var(--card-bg);
             border-radius: 28px;
             padding: 2rem;
@@ -304,10 +295,9 @@
             border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(5px);
         }
 
-        .service-card:before, .portfolio-card:before {
+        .service-card:before, .portfolio-card:before, .benefit-card:before {
             content: '';
             position: absolute;
             top: 0;
@@ -319,11 +309,11 @@
             transition: transform 0.4s;
         }
 
-        .service-card:hover:before, .portfolio-card:hover:before {
+        .service-card:hover:before, .portfolio-card:hover:before, .benefit-card:hover:before {
             transform: scaleX(1);
         }
 
-        .service-card:hover, .portfolio-card:hover {
+        .service-card:hover, .portfolio-card:hover, .benefit-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
             border-color: transparent;
@@ -365,7 +355,26 @@
             right: 1rem;
         }
 
-        /* Portfolio Image */
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
         .portfolio-img {
             width: 100%;
             height: 220px;
@@ -409,7 +418,6 @@
             border-bottom-color: #b8860b;
         }
 
-        /* Why Choose Us */
         .why-choose-us {
             text-align: center;
             margin: 5rem 0;
@@ -429,14 +437,11 @@
             text-align: center;
             transition: all 0.3s;
             border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
         }
 
         .why-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
-            border-color: transparent;
         }
 
         .why-icon {
@@ -465,7 +470,6 @@
             line-height: 1.6;
         }
 
-        /* Contact Section */
         .contact-section {
             background: linear-gradient(135deg, #0a1f19 0%, #0f3b2c 100%);
             color: white;
@@ -474,17 +478,6 @@
             margin: 4rem 0;
             position: relative;
             overflow: hidden;
-        }
-
-        .contact-section:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(184,134,11,0.15) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         body.dark .contact-section {
@@ -502,7 +495,6 @@
             margin-bottom: 1.2rem;
         }
 
-        /* FIXED: Form inputs for both modes - Select dropdown text visible in dark mode */
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -517,28 +509,20 @@
             color: var(--input-text);
         }
 
-        /* FIXED: Dark mode select dropdown text - WHITE */
         body.dark .form-group select {
             color: #ffffff !important;
             background: rgba(255,255,255,0.08);
         }
 
-        /* FIXED: Dark mode select dropdown options */
         body.dark .form-group select option {
             background: #141a2e;
             color: #ffffff;
         }
 
-        /* FIXED: Dark mode input placeholder */
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: var(--text-secondary);
             opacity: 0.7;
-        }
-
-        body.dark .form-group input::placeholder,
-        body.dark .form-group textarea::placeholder {
-            color: #94a3b8;
         }
 
         .form-group input:focus,
@@ -567,7 +551,6 @@
             box-shadow: 0 10px 25px -5px rgba(184,134,11,0.5);
         }
 
-        /* Premium Footer with Social Icons */
         footer {
             text-align: center;
             padding: 3rem 2rem 2rem;
@@ -595,14 +578,20 @@
             border: 1px solid var(--border-color);
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 1.6rem;
-            font-weight: normal;
         }
 
-        .social-icon.whatsapp { color: #25D366; }
-        .social-icon.instagram { color: #E4405F; }
-        .social-icon.email { color: #ea4335; }
-        .social-icon.phone { color: #34B7F1; }
+        .social-icon img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            padding: 4px;
+            object-fit: contain;
+        }
+
+        .social-icon.whatsapp img { color: #25D366; }
+        .social-icon.instagram img { color: #E4405F; }
+        .social-icon.email img { color: #ea4335; }
+        .social-icon.phone { font-size: 1.6rem; color: #34B7F1; }
 
         .social-icon:hover {
             transform: translateY(-5px) scale(1.1);
@@ -623,6 +612,7 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -634,7 +624,6 @@
             font-size: 0.85rem;
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -660,24 +649,6 @@
             overflow-y: auto;
             animation: modalSlideIn 0.3s ease;
             border: 1px solid var(--border-color);
-        }
-
-        /* FIXED: Modal form inputs and select */
-        .modal-content .form-group input,
-        .modal-content .form-group select,
-        .modal-content .form-group textarea {
-            background: var(--input-bg);
-            border: 1px solid var(--input-border);
-            color: var(--input-text);
-        }
-
-        body.dark .modal-content .form-group select {
-            color: #ffffff !important;
-        }
-
-        body.dark .modal-content .form-group select option {
-            background: #141a2e;
-            color: #ffffff;
         }
 
         @keyframes modalSlideIn {
@@ -717,79 +688,13 @@
             .hero-stats { gap: 1rem; }
             .stat { padding: 0.8rem 1.5rem; }
             .stat strong { font-size: 1.2rem; }
-            .services-grid, .portfolio-grid, .why-grid {
+            .services-grid, .portfolio-grid, .benefits-grid, .why-grid {
                 grid-template-columns: 1fr;
             }
             .social-links { gap: 1rem; }
-            .social-icon { width: 45px; height: 45px; font-size: 1.3rem; }
+            .social-icon { width: 45px; height: 45px; }
+            .social-icon img { width: 24px; height: 24px; }
         }
-    /* Virtual Tour Benefits Section */
-.benefits-section {
-    margin: 4rem 0;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.benefit-card {
-    background: var(--card-bg);
-    border-radius: 28px;
-    padding: 1.8rem;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-}
-
-.benefit-card:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #0f3b2c, #b8860b, #e8b44b);
-    transform: scaleX(0);
-    transition: transform 0.4s;
-}
-
-.benefit-card:hover:before {
-    transform: scaleX(1);
-}
-
-.benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: transparent;
-}
-
-.benefit-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.benefit-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-primary);
-}
-
-.benefit-card p {
-    color: var(--text-secondary);
-    line-height: 1.5;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
     </style>
 </head>
 <body>
@@ -821,18 +726,28 @@
 </section>
 
 <div class="container">
+    <!-- SERVICES SECTION -->
     <section id="services">
         <h2>Our Premium Services</h2>
         <div class="section-subhead">Tailored packages designed for businesses that demand excellence</div>
         <div class="services-grid" id="services-grid"></div>
     </section>
 
+    <!-- BENEFITS SECTION -->
+    <section id="benefits" class="benefits-section">
+        <h2>✨ Virtual Tour Benefits</h2>
+        <div class="section-subhead">Give your customers a 360° experience that builds trust and drives results</div>
+        <div class="benefits-grid" id="benefits-grid"></div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
     <section id="portfolio">
         <h2>Featured Projects</h2>
         <div class="section-subhead">Explore our premium 360° virtual experiences across various industries</div>
         <div class="portfolio-grid" id="portfolio-grid"></div>
     </section>
 
+    <!-- WHY CHOOSE SECTION -->
     <div class="why-choose-us">
         <h2>Why Choose Shine360?</h2>
         <div class="section-subhead">We combine cutting-edge technology with creative expertise to deliver immersive experiences</div>
@@ -846,6 +761,7 @@
         </div>
     </div>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section">
         <h2 style="color:white;">Ready to Elevate Your Business?</h2>
         <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">Book a free consultation — let's map out your 360° strategy</p>
@@ -882,32 +798,24 @@
     </section>
 </div>
 
-<!-- Footer with Social Icons -->
+<!-- Footer -->
 <footer>
     <div class="social-links">
-        <!-- WhatsApp -->
         <a href="https://wa.me/919354023727" target="_blank" class="social-icon whatsapp">
-            <img src="https://raw.githubusercontent.com/satra06/shine360/main/wtsp.png" alt="WhatsApp" style="width: 28px; height: 28px; border-radius: 50%; padding: 4px; object-fit: contain;">
+            <img src="https://raw.githubusercontent.com/satra06/shine360/main/wtsp.png" alt="WhatsApp">
         </a>
-        
-        <!-- Instagram -->
         <a href="https://instagram.com/shinstyle.8" target="_blank" class="social-icon instagram">
-            <img src="https://raw.githubusercontent.com/satra06/shine360/main/insta.png" alt="Instagram" style="width: 28px; height: 28px; border-radius: 50%; padding: 4px; object-fit: contain;">
+            <img src="https://raw.githubusercontent.com/satra06/shine360/main/insta.png" alt="Instagram">
         </a>
-        
-        <!-- Email -->
         <a href="mailto:sonu724248@gmail.com" class="social-icon email">
-            <img src="https://raw.githubusercontent.com/satra06/shine360/main/gmail.png" alt="Email" style="width: 28px; height: 28px; border-radius: 50%; padding: 4px; object-fit: contain;">
+            <img src="https://raw.githubusercontent.com/satra06/shine360/main/gmail.png" alt="Email">
         </a>
-        
-        <!-- Phone -->
-        <a href="tel:+919354023727" class="social-icon phone">
-            📞
-        </a>
+        <a href="tel:+919354023727" class="social-icon phone">📞</a>
     </div>
     <div class="footer-links">
         <a onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">Home</a>
         <a onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Services</a>
+        <a onclick="document.getElementById('benefits').scrollIntoView({behavior: 'smooth'})">Benefits</a>
         <a onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})">Portfolio</a>
         <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</a>
         <a onclick="openQuoteModal()" style="cursor:pointer;">Get Quote</a>
@@ -916,6 +824,7 @@
     <p style="margin-top: 0.5rem;">📞 +91 9354023727 | ✉️ sonu724248@gmail.com</p>
 </footer>
 
+<!-- Quote Modal -->
 <div id="quoteModal" class="modal">
     <div class="modal-content">
         <h3>📋 Request a Quote</h3>
@@ -949,171 +858,87 @@
         <div id="quoteFormStatus" style="margin-top:1rem;"></div>
     </div>
 </div>
+
 <script>
-    // ============================================
-    // GOOGLE SHEETS - APNA URL YAHAN PASTE KARO
-    // ============================================
+    // Google Sheets URL
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTWrBuotPdJmCp9ZUcesc51eA7Th1S6uyqA_HzCl2v_n15YBQHgJSiRb5lDaL7Y6lf/exec";
 
- // Services Data - Edit karo yahan se
-const servicesData = [
-    { 
-        name: "Google Street View Tour", 
-        price: "₹3,999", 
-        priceUnit: "per Hotspot",
-        duration: "Duration: 60 min",
-        badge: "Most Popular", 
-        features: ["📍 Google Maps integration", "🔘 Interactive hotspots", "📱 Mobile-optimized", "📈 SEO boost"] 
-    },
-    { 
-        name: "360° Video Production", 
-        price: "₹5,999", 
-        priceUnit: "per 2 min video",
-        duration: "Duration: 60 min",
-        badge: "Popular", 
-        features: ["🎬 4K cinematic quality", "✨ Motion graphics & VFX", "🎵 Royalty-free score", "⚡ 5-day delivery"] 
-    },
-    { 
-        name: "Premium Immersion", 
-        price: "₹6,499", 
-        priceUnit: "",
-        duration: "Duration: 60 min",
-        badge: "Best Value", 
-        features: ["🏆 Drone + ground 360°", "🎥 5-min narrated video", "🌟 Custom transitions", "🔁 Priority support"] 
-    },
-    { 
-        name: "Brand Identity Suite", 
-        price: "₹3,499", 
-        priceUnit: "",
-        duration: "Duration: 3-5 days",
-        badge: "Recommended", 
-        features: ["🎨 Logo + color palette", "📄 Brand guidelines", "🖼️ Social media kit", "✏️ 3 concept rounds"] 
-    },
-    { 
-        name: "High-Performance Website", 
-        price: "₹16,999", 
-        priceUnit: "",
-        duration: "Duration: 7-14 days",
-        badge: "Premium", 
-        features: ["⚡ Lighthouse 90+ score", "📱 Fully responsive", "🔍 On-page SEO setup", "📅 2 weeks delivery"] 
-    },
-    { 
-        name: "Landing Page Pro", 
-        price: "₹3,799", 
-        priceUnit: "",
-        duration: "Duration: 2-3 days",
-        badge: "Basic", 
-        features: ["🎯 Conversion-focused", "📊 Form + analytics", "⚡ 48h launch", "🔄 A/B ready"] 
-    }
-];
+    // ========== SERVICES DATA ==========
+    const servicesData = [
+        { 
+            name: "Google Street View Tour", 
+            price: "₹3,999", 
+            priceUnit: "per Hotspot",
+            duration: "Duration: 60 min",
+            badge: "Most Popular", 
+            features: ["📍 Google Maps integration", "🔘 Interactive hotspots", "📱 Mobile-optimized", "📈 SEO boost"] 
+        },
+        { 
+            name: "360° Video Production", 
+            price: "₹5,999", 
+            priceUnit: "per 2 min video",
+            duration: "Duration: 60 min",
+            badge: "Popular", 
+            features: ["🎬 4K cinematic quality", "✨ Motion graphics & VFX", "🎵 Royalty-free score", "⚡ 5-day delivery"] 
+        },
+        { 
+            name: "Premium Immersion", 
+            price: "₹6,499", 
+            priceUnit: "",
+            duration: "Duration: 60 min",
+            badge: "Best Value", 
+            features: ["🏆 Drone + ground 360°", "🎥 5-min narrated video", "🌟 Custom transitions", "🔁 Priority support"] 
+        },
+        { 
+            name: "Brand Identity Suite", 
+            price: "₹3,499", 
+            priceUnit: "",
+            duration: "Duration: 3-5 days",
+            badge: "Recommended", 
+            features: ["🎨 Logo + color palette", "📄 Brand guidelines", "🖼️ Social media kit", "✏️ 3 concept rounds"] 
+        },
+        { 
+            name: "High-Performance Website", 
+            price: "₹16,999", 
+            priceUnit: "",
+            duration: "Duration: 7-14 days",
+            badge: "Premium", 
+            features: ["⚡ Lighthouse 90+ score", "📱 Fully responsive", "🔍 On-page SEO setup", "📅 2 weeks delivery"] 
+        },
+        { 
+            name: "Landing Page Pro", 
+            price: "₹3,799", 
+            priceUnit: "",
+            duration: "Duration: 2-3 days",
+            badge: "Basic", 
+            features: ["🎯 Conversion-focused", "📊 Form + analytics", "⚡ 48h launch", "🔄 A/B ready"] 
+        }
+    ];
 
-<!-- VIRTUAL TOUR BENEFITS SECTION -->
-<section id="benefits" class="benefits-section">
-    <h2>✨ Virtual Tour Benefits</h2>
-    <div class="section-subhead">Give your customers a 360° experience that builds trust and drives results</div>
-    
-    <div class="benefits-grid">
-        <div class="benefit-card">
-            <div class="benefit-icon">🕐</div>
-            <h3>24/7 Online Access</h3>
-            <p>Customers can visit your property anytime, from anywhere — even after business hours.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">📈</div>
-            <h3>Increases Online Visibility</h3>
-            <p>Virtual tours improve engagement on Google & Google Maps, helping your business rank better.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">🤝</div>
-            <h3>Builds Trust & Transparency</h3>
-            <p>Customers can see the real environment before visiting, which increases confidence and reduces doubts.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">💰</div>
-            <h3>Higher Conversion Rate</h3>
-            <p>People who take a virtual tour are more likely to visit physically or make a booking.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">🏢</div>
-            <h3>Perfect for All Businesses</h3>
-            <p>Ideal for Hotels, Restaurants, Showrooms, Schools, Real Estate & more.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">📱</div>
-            <h3>Mobile & TV Friendly</h3>
-            <p>Works smoothly on Smartphones, Laptops, Smart TVs & VR Headsets.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">⏱️</div>
-            <h3>Saves Time & Cost</h3>
-            <p>Reduces unnecessary physical visits and saves staff time.</p>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">🏆</div>
-            <h3>Competitive Advantage</h3>
-            <p>Stand out from competitors who only use normal photos.</p>
-        </div>
-    </div>
-</section>
-// Portfolio Data - Edit karo yahan se
-const portfolioData = [
-    { 
-        name: "Rosebelle Banquet Hall", 
-        category: "🏢 Banquet & Events", 
-        desc: "Elegant indoor & outdoor wedding venue", 
-        mapLink: "https://maps.app.goo.gl/v6p1EZN8XozZdhAFA?g_st=ac", 
-        imageUrl: "", 
-        emoji: "🏰" 
-    },
-    { 
-        name: "Hemali Hall", 
-        category: "🎉 Community Hall", 
-        desc: "Spacious hall for receptions & gatherings", 
-        mapLink: "https://maps.app.goo.gl/5jiGG86jv8a4ycJc7?g_st=ac", 
-        imageUrl: "", 
-        emoji: "🎪" 
-    },
-    { 
-        name: "Jewelers Store", 
-        category: "💎 Luxury Jewelry", 
-        desc: "Showcasing intricate designs & premium collections", 
-        mapLink: "https://maps.app.goo.gl/bJ8ZKjMfCT8xgqJ87?g_st=ac", 
-        imageUrl: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=220&fit=crop", 
-        emoji: "💍" 
-    },
-    { 
-        name: "Cloth Store", 
-        category: "👗 Fashion & Textiles", 
-        desc: "Traditional & modern fabric collections", 
-        mapLink: "https://maps.app.goo.gl/LtUtmhU7jmxHK8H79?g_st=ac", 
-        imageUrl: "", 
-        emoji: "🧥" 
-    },
-    { 
-        name: "City Care Hospital", 
-        category: "🏥 Healthcare", 
-        desc: "Modern facilities & patient-friendly layout", 
-        mapLink: "https://shorturl.at/Es9HN", 
-        imageUrl: "", 
-        emoji: "🏥" 
-    },
-    { 
-        name: "Grand Oliva Hotel", 
-        category: "🏨 Hospitality", 
-        desc: "Luxury rooms, banquet & rooftop dining", 
-        mapLink: "https://shorturl.at/E7waV", 
-        imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=220&fit=crop", 
-        emoji: "🏨" 
-    },
-    { 
-        name: "Jari Mari Mata Mandir", 
-        category: "🛕 Religious & Heritage", 
-        desc: "Sacred temple complex", 
-        mapLink: "https://maps.app.goo.gl/y8PpRhSN2YWvFFj4A?g_st=ac", 
-        imageUrl: "", 
-        emoji: "🛕" 
-    }
-];
+    // ========== BENEFITS DATA ==========
+    const benefitsData = [
+        { icon: "🕐", title: "24/7 Online Access", desc: "Customers can visit your property anytime, from anywhere — even after business hours." },
+        { icon: "📈", title: "Increases Online Visibility", desc: "Virtual tours improve engagement on Google & Google Maps, helping your business rank better." },
+        { icon: "🤝", title: "Builds Trust & Transparency", desc: "Customers can see the real environment before visiting, which increases confidence and reduces doubts." },
+        { icon: "💰", title: "Higher Conversion Rate", desc: "People who take a virtual tour are more likely to visit physically or make a booking." },
+        { icon: "🏢", title: "Perfect for All Businesses", desc: "Ideal for Hotels, Restaurants, Showrooms, Schools, Real Estate & more." },
+        { icon: "📱", title: "Mobile & TV Friendly", desc: "Works smoothly on Smartphones, Laptops, Smart TVs & VR Headsets." },
+        { icon: "⏱️", title: "Saves Time & Cost", desc: "Reduces unnecessary physical visits and saves staff time." },
+        { icon: "🏆", title: "Competitive Advantage", desc: "Stand out from competitors who only use normal photos." }
+    ];
+
+    // ========== PORTFOLIO DATA ==========
+    const portfolioData = [
+        { name: "Rosebelle Banquet Hall", category: "🏢 Banquet & Events", desc: "Elegant indoor & outdoor wedding venue", mapLink: "https://maps.app.goo.gl/v6p1EZN8XozZdhAFA?g_st=ac", imageUrl: "", emoji: "🏰" },
+        { name: "Hemali Hall", category: "🎉 Community Hall", desc: "Spacious hall for receptions & gatherings", mapLink: "https://maps.app.goo.gl/5jiGG86jv8a4ycJc7?g_st=ac", imageUrl: "", emoji: "🎪" },
+        { name: "Jewelers Store", category: "💎 Luxury Jewelry", desc: "Showcasing intricate designs & premium collections", mapLink: "https://maps.app.goo.gl/bJ8ZKjMfCT8xgqJ87?g_st=ac", imageUrl: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=220&fit=crop", emoji: "💍" },
+        { name: "Cloth Store", category: "👗 Fashion & Textiles", desc: "Traditional & modern fabric collections", mapLink: "https://maps.app.goo.gl/LtUtmhU7jmxHK8H79?g_st=ac", imageUrl: "", emoji: "🧥" },
+        { name: "City Care Hospital", category: "🏥 Healthcare", desc: "Modern facilities & patient-friendly layout", mapLink: "https://shorturl.at/Es9HN", imageUrl: "", emoji: "🏥" },
+        { name: "Grand Oliva Hotel", category: "🏨 Hospitality", desc: "Luxury rooms, banquet & rooftop dining", mapLink: "https://shorturl.at/E7waV", imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=220&fit=crop", emoji: "🏨" },
+        { name: "Jari Mari Mata Mandir", category: "🛕 Religious & Heritage", desc: "Sacred temple complex", mapLink: "https://maps.app.goo.gl/y8PpRhSN2YWvFFj4A?g_st=ac", imageUrl: "", emoji: "🛕" }
+    ];
+
+    // Render Services
     function renderServices() {
         const container = document.getElementById('services-grid');
         if (!container) return;
@@ -1121,7 +946,8 @@ const portfolioData = [
             <div class="service-card">
                 ${service.badge ? `<div class="badge">${service.badge}</div>` : ''}
                 <h3>${service.name}</h3>
-                <div class="price">${service.price}</div>
+                <div class="price">${service.price} ${service.priceUnit ? `<span style="font-size: 0.9rem; font-weight: normal;">${service.priceUnit}</span>` : ''}</div>
+                <div style="font-size: 0.8rem; color: #b8860b; margin-bottom: 1rem;">${service.duration}</div>
                 <ul class="feature-list">
                     ${service.features.map(f => `<li>${f}</li>`).join('')}
                 </ul>
@@ -1129,6 +955,20 @@ const portfolioData = [
         `).join('');
     }
 
+    // Render Benefits
+    function renderBenefits() {
+        const container = document.getElementById('benefits-grid');
+        if (!container) return;
+        container.innerHTML = benefitsData.map(benefit => `
+            <div class="benefit-card">
+                <div class="benefit-icon">${benefit.icon}</div>
+                <h3>${benefit.title}</h3>
+                <p>${benefit.desc}</p>
+            </div>
+        `).join('');
+    }
+
+    // Render Portfolio
     function renderPortfolio() {
         const container = document.getElementById('portfolio-grid');
         if (!container) return;
@@ -1151,10 +991,10 @@ const portfolioData = [
         }).join('');
     }
 
-    // Google Sheets Submit Function
+    // Google Sheets Submit
     async function submitToGoogleSheet(data, formType) {
         try {
-            const response = await fetch(GOOGLE_SCRIPT_URL, {
+            await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -1168,8 +1008,8 @@ const portfolioData = [
         }
     }
 
-    // Contact Form Handler
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    // Contact Form
+    document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const statusDiv = document.getElementById('contactFormStatus');
         statusDiv.style.display = 'block';
@@ -1195,18 +1035,14 @@ const portfolioData = [
         setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
     });
 
-    // Quote Modal Functions
-    function openQuoteModal() { 
-        document.getElementById('quoteModal').style.display = 'flex'; 
-    }
-
+    // Quote Modal
+    function openQuoteModal() { document.getElementById('quoteModal').style.display = 'flex'; }
     function closeQuoteModal() {
         document.getElementById('quoteModal').style.display = 'none';
         document.getElementById('quoteForm').reset();
         document.getElementById('quoteFormStatus').innerHTML = '';
     }
 
-    // Quote Form Handler
     document.getElementById('quoteForm')?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const statusDiv = document.getElementById('quoteFormStatus');
@@ -1230,7 +1066,7 @@ const portfolioData = [
         }
     });
 
-    // Dark Mode Toggle
+    // Dark Mode
     const darkModeToggle = document.getElementById('darkModeToggle');
     if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark');
@@ -1247,14 +1083,11 @@ const portfolioData = [
         }
     });
 
-    // Close modal on outside click
-    window.onclick = (event) => { 
-        const modal = document.getElementById('quoteModal'); 
-        if (event.target === modal) closeQuoteModal(); 
-    };
-
+    window.onclick = (event) => { const modal = document.getElementById('quoteModal'); if (event.target === modal) closeQuoteModal(); };
+    
     // Initialize
     renderServices();
+    renderBenefits();
     renderPortfolio();
 </script>
 </body>
